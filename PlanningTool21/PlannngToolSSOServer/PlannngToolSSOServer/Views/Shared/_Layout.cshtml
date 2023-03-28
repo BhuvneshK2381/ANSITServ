@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <environment include="Development, Production">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        @*<link href="~/css/BootstrapDatetime.css" rel="stylesheet" />*@
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    </environment>
+
+    @*<environment exclude="Development">
+            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        </environment>*@
+</head>
+<body>
+    @*<nav class="navbar navbar-fixed-top" style="background-color: #f4f9fd">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="home" asp-action="index" class="navbar-brand">identityapp</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="home" asp-action="index">home</a></li>
+                        <li class=""><a asp-area="" asp-controller="home" asp-action="about">about</a></li>
+                        <li><a asp-area="" asp-controller="home" asp-action="contact">contact</a></li>
+                    </ul>
+                    @await Html.PartialAsync("_LoginPartial")
+                </div>
+            </div>
+        </nav>*@
+
+    <nav class="navbar navbar-expand-lg navbar-light" style=" background-color: rgba(19,241,162,0.4)">
+
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav" style="width: 100%;">
+                <a class="nav-item nav-link active sizenav" href="tel:855 568-5629" style="color: #23527c;">
+                    <i class="fas fa-phone" style="color: #23527c;"></i>&nbsp;(855) 568-5629
+                </a>
+                <a class="nav-item nav-link active sizenav mr-auto" href="mailto: info@northstardoc.com" style="color: #23527c;">
+                    <i class="far fa-envelope" style="color: #23527c;"></i>&nbsp;info@northstardoc.com
+                </a>
+                <a class="nav-item nav-link active sizenav" href="#" style="color: #23527c;">Find a Provider &nbsp; |</a>
+
+
+                <a class="nav-item nav-link sizenav" href="https://msh2.azurewebsites.net/contact-us" style="color: #23527c;"> Contact us</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light shad" style="padding:0px!important">
+        <a class="navbar-brand pl-3" href="https://msh2.azurewebsites.net">
+            <img src="~/images/logo.png" class="d-inline-block align-top" alt="">
+
+        </a>
+    </nav>
+
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <hr />
+    <footer>
+        <ul class="nav d-flex justify-content-between pl-5 pr-5 ml-5 mr-5 pb-3">
+            <li>
+                <img src="~/images/logo.png" />
+            </li>
+            <li style="margin:auto 0">© Copyright @DateTime.UtcNow.Year By NORTHSTARDOC.<br><p style="margin-left: 66px;">All Rights Reserved</p></li>
+            <li>
+                <img src="~/images/northStarOffice360Logo1.png" />
+            </li>
+        </ul>
+        @*<p>&copy; 2017 - IdentityApp</p>*@
+    </footer>
+
+    <environment include="Development, Production">
+        @*<script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>*@
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </environment>
+    @*<environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>*@
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

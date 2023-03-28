@@ -1,0 +1,76 @@
+﻿@model List<PlanningToolSSOServer.Models.AccountViewModels.RoleManagerModel>
+
+<div class="login-reg">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="orange heading-text">LOGIN FOR SAME PROVIDER STAFF</h1>
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10 col-lg-8">
+                        <div class="login">
+
+                            <div class="row form-padding">
+                                <p >You are using same credentials for below Providers.</p>
+                                <p >Please choose any provider to login your account.</p>
+                                <br />
+                                @if (Model.Count > 0)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <div class="col-sm-12">
+                                            <button @*href="@Url.Action("GoToDoctorStaffDashboard", "Account", new { key = @item.MainId })"*@ mainid="@item.MainId" providerid ="@item.providerId" loginusername="@item.LoginUserName" providertypeid="@item.ProviderTypeId" providerrole="@item.ProviderRole" class="btn btn-success btnusertoken"> @item.ProviderName</button>
+                                            <br>
+                                            <br>
+                                        </div>
+                                    }
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        debugger
+        //if (window.location.hash) {
+        //    var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+        //    alert(hash);
+        //    // hash found
+        //}
+
+        $(".btnusertoken").on("click", function () {
+            debugger
+            var mainid = $(this).attr('mainid');
+            var providerid = $(this).attr('providerid');
+            var loginusername = $(this).attr('loginusername');
+            var providerrole = $(this).attr('providerrole');
+            var providertypeid = $(this).attr('providertypeid');
+            var hash = window.location.hash.substring(1);
+            hash = hash + "&mainid=" + mainid + "&providerid=" + providerid + "&loginusername=" + loginusername + "&providertypeid=" + providertypeid;
+            if (providerrole == "FacilityStaff")
+            {
+                var url = "@Config.facilityStaffRedirectUri" + "#" + hash;
+                console.log(url);
+                window.location.href = url;
+            }
+            else if (providerrole == "DoctorStaff")
+            {
+                var url = "@Config.doctorStaffRedirectUri" +"#"+ hash;
+                window.location.href = url;
+            }
+        });
+
+    });
+</script>
